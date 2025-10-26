@@ -1,3 +1,4 @@
+# .github/workflows/pages.yml
 name: Build and deploy EJS to Pages
 on:
   push:
