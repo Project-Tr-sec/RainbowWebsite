@@ -1,5 +1,4 @@
 name: Build and deploy EJS to Pages
-
 on:
   push:
     branches: [ "main" ]
