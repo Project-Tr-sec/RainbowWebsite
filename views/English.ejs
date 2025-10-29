@@ -1,633 +1,353 @@
+<!-- file: views/English.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rainbow Language Academy</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <style>
-        :root {
-            --primary-color: #80C4E9;
-            --secondary-color: #5DA8D1;
-            --accent-color: #8CCDEB;
-            --dark-color: #2C3E50;
-            --light-color: #F8F9FA;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            overflow-x: hidden;
-            padding-top: 80px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Navbar Styles */
-        .navbar-custom {
-            background-color: #ffffff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 0.8rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
-        }
-
-        .navbar-brand img {
-            height: 60px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand img:hover {
-            transform: scale(1.05);
-        }
-
-        .navbar-custom .nav-link {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #4a5568;
-            margin: 0 0.5rem;
-            padding: 0.5rem 1rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-custom .nav-link:hover {
-            color: #2d3748;
-        }
-
-        .navbar-custom .nav-link:before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #4299e1;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .navbar-custom .nav-link:hover:before {
-            visibility: visible;
-            width: 100%;
-        }
-
-        .navbar-custom .active {
-            color: #4299e1 !important;
-        }
-
-        .navbar-custom .active:before {
-            visibility: visible;
-            width: 100%;
-        }
-
-        .contact-btn {
-            background-color: #4299e1;
-            color: white !important;
-            border-radius: 50px;
-            padding: 0.5rem 1.5rem !important;
-            margin-left: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background-color: #3182ce;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(66, 153, 225, 0.3);
-        }
-
-        /* Main Content Wrapper */
-        .content-wrapper {
-            display: flex;
-            flex: 1;
-        }
-
-        /* Sidebar Styles */
-        .side-bar {
-            background-color: #27548A;
-            color: white;
-            width: 250px;
-            min-height: calc(100vh - 80px);
-            overflow-y: auto;
-            padding: 1rem 0;
-            position: sticky;
-            top: 80px;
-            align-self: flex-start;
-        }
-
-        .side-bar .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            padding: 0.5rem 1.5rem;
-            border-left: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .side-bar .nav-link:hover,
-        .side-bar .nav-link.active {
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .side-bar .nav-link.active {
-            font-weight: 600;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            min-height: calc(100vh - 80px);
-        }
-
-        /* Course Section Styles */
-        .course-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .course-header {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .course-card {
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .course-card-img {
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .course-card-body {
-            padding: 1.5rem;
-        }
-
-        .course-age-badge {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        /* Buttons */
-        .btn-rainbow {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-rainbow:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 2rem 0;
-            margin-top: auto; /* This pushes footer to bottom */
-            width: 100%;
-        }
-
-        .social-icon {
-            font-size: 1.5rem;
-            color: white;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            body {
-                padding-top: 70px;
-            }
-
-            .navbar-brand img {
-                height: 50px;
-            }
-
-            .content-wrapper {
-                flex-direction: column;
-            }
-
-            .side-bar {
-                width: 100%;
-                position: static;
-                min-height: auto;
-                top: auto;
-            }
-
-            .main-content {
-                padding: 1rem;
-                min-height: auto;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainbow Language Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    :root { --primary-color:#80C4E9; --secondary-color:#5DA8D1; --accent-color:#8CCDEB; --dark-color:#2C3E50; --light-color:#F8F9FA; }
+    body { font-family:'Segoe UI',sans-serif; overflow-x:hidden; padding-top:80px; display:flex; flex-direction:column; min-height:100vh; }
+    .navbar-custom { background:#fff; box-shadow:0 2px 15px rgba(0,0,0,.1); padding:.8rem 0; position:fixed; top:0; width:100%; z-index:1030; }
+    .navbar-brand img { height:60px; transition:all .3s; } .navbar-brand img:hover { transform:scale(1.05); }
+    .navbar-custom .nav-link { font-size:1.1rem; font-weight:600; color:#4a5568; margin:0 .5rem; padding:.5rem 1rem; position:relative; transition:all .3s; }
+    .navbar-custom .nav-link:hover { color:#2d3748; }
+    .navbar-custom .nav-link:before { content:''; position:absolute; width:0; height:2px; bottom:0; left:0; background:#4299e1; visibility:hidden; transition:all .3s; }
+    .navbar-custom .nav-link:hover:before, .navbar-custom .active:before { visibility:visible; width:100%; }
+    .navbar-custom .active { color:#4299e1 !important; }
+    .contact-btn { background:#4299e1; color:#fff !important; border-radius:50px; padding:.5rem 1.5rem !important; margin-left:.5rem; transition:all .3s; }
+    .contact-btn:hover { background:#3182ce; transform:translateY(-2px); box-shadow:0 4px 8px rgba(66,153,225,.3); }
+    .content-wrapper { display:flex; flex:1; }
+    .side-bar { background:#27548A; color:#fff; width:250px; min-height:calc(100vh - 80px); overflow-y:auto; padding:1rem 0; position:sticky; top:80px; align-self:flex-start; }
+    .side-bar .nav-link { color:rgba(255,255,255,.8); padding:.5rem 1.5rem; border-left:3px solid transparent; transition:all .3s; }
+    .side-bar .nav-link:hover, .side-bar .nav-link.active { color:#fff; background:rgba(255,255,255,.1); border-left:3px solid var(--accent-color); }
+    .main-content { flex:1; padding:2rem; min-height:calc(100vh - 80px); }
+    .course-section { margin-bottom:3rem; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,.05); }
+    .course-header { border-bottom:2px solid var(--accent-color); padding-bottom:1rem; margin-bottom:1.5rem; }
+    .course-card { border:none; border-radius:10px; overflow:hidden; transition:all .3s; margin-bottom:1.5rem; box-shadow:0 3px 10px rgba(0,0,0,.1); }
+    .course-card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,.15); }
+    .course-card-img { height:180px; object-fit:cover; }
+    .course-card-body { padding:1.5rem; }
+    .course-age-badge { background:var(--accent-color); color:#fff; padding:.25rem .75rem; border-radius:50px; font-size:.85rem; margin-right:.5rem; margin-bottom:.5rem; display:inline-block; }
+    .btn-rainbow { background:var(--accent-color); color:#fff; border:none; padding:.75rem 1.5rem; border-radius:50px; font-weight:600; transition:all .3s; box-shadow:0 4px 6px rgba(0,0,0,.1); }
+    .btn-rainbow:hover { background:var(--secondary-color); transform:translateY(-2px); box-shadow:0 6px 8px rgba(0,0,0,.15); color:#fff; }
+    footer { background:var(--dark-color); color:#fff; padding:2rem 0; margin-top:auto; width:100%; }
+    .social-icon { font-size:1.5rem; color:#fff; margin:0 10px; transition:color .3s; }
+    .social-icon:hover { color:var(--accent-color); }
+    @media (max-width: 992px) { body { padding-top:70px; } .navbar-brand img { height:50px; } .content-wrapper { flex-direction:column; } .side-bar { width:100%; position:static; min-height:auto; top:auto; } .main-content { padding:1rem; min-height:auto; } }
+  </style>
 </head>
-
 <body data-bs-spy="scroll" data-bs-target="#course-sidebar" data-bs-offset="80">
-    <!-- Navbar -->
-    <%- include('_navbar') %>
-    
-    <!-- Main Content Wrapper -->
-    <div class="content-wrapper">
-        <!-- Sidebar Navigation -->
-        <nav id="course-sidebar" class="side-bar">
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link" href="#english-kinder">Lớp Tiếng Anh Trẻ Em</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ms-3" href="#kinder-4-5">4-5 tuổi</a>
-                    <a class="nav-link ms-3" href="#kinder-5-6">5-6 tuổi</a>
-                    <a class="nav-link ms-3" href="#kinder-6-7">6-7 tuổi</a>
-                    <a class="nav-link ms-3" href="#ekid">Lớp EKid</a>
-                </nav>
-                <a class="nav-link" href="#english-ielts">Lớp IELTS</a>
-                <a class="nav-link" href="#english-adults">Tiếng Anh Người Lớn</a>
-                <a class="nav-link" href="#chinese-adults">Tiếng Trung Người Lớn</a>
-                <a class="nav-link" href="#japanese-courses">Tiếng Nhật Người Lớn</a>
-            </nav>
+  <%- include('_navbar') %>
+
+  <div class="content-wrapper">
+    <!-- Sidebar -->
+    <nav id="course-sidebar" class="side-bar">
+      <nav class="nav nav-pills flex-column">
+        <a class="nav-link" href="#english-kinder">Lớp Tiếng Anh Trẻ Em</a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link ms-3" href="#kinder-4-5">4-5 tuổi</a>
+          <a class="nav-link ms-3" href="#kinder-5-6">5-6 tuổi</a>
+          <a class="nav-link ms-3" href="#kinder-6-7">6-7 tuổi</a>
+          <a class="nav-link ms-3" href="#ekid">Lớp EKid</a>
         </nav>
+        <a class="nav-link" href="#english-ielts">Lớp IELTS</a>
+        <a class="nav-link" href="#english-adults">Tiếng Anh Người Lớn</a>
+        <a class="nav-link" href="#chinese-adults">Tiếng Trung Người Lớn</a>
+        <a class="nav-link" href="#japanese-courses">Tiếng Nhật Người Lớn</a>
+      </nav>
+    </nav>
 
-            <!-- Main Content -->
-            <div class="main-content">
-                <!-- English Courses Section -->
-                <section id="english-courses" class="course-section">
-                    <div class="course-header">
-                        <h2 class="display-5 fw-bold">Khóa Học Tiếng Anh</h2>
-                        <p class="lead">Chương trình đào tạo tiếng Anh chất lượng cho mọi lứa tuổi</p>
-                    </div>
-
-                    <!-- Kinder English -->
-                    <div id="english-kinder" class="mb-5">
-                        <h3 class="mb-4">Lớp Tiếng Anh Trẻ Em</h3>
-                        <div class="row">
-                            <!-- Kinder 4-5 -->
-                            <div id="kinder-4-5" class="col-md-6 col-lg-3">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Lớp 4-5 tuổi</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">4-5 tuổi</span>
-                                        </div>
-                                        <p class="card-text">Khóa học tiếng Anh vui nhộn giúp trẻ làm quen với ngôn ngữ
-                                            thông
-                                            qua trò chơi và bài hát.</p>
-                                        <ul class="mb-3">
-                                            <li>Học qua hình ảnh, âm nhạc</li>
-                                            <li>Phát triển phản xạ ngôn ngữ</li>
-                                            <li>Làm quen bảng chữ cái</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Kinder 5-6 -->
-                            <div id="kinder-5-6" class="col-md-6 col-lg-3">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Lớp 5-6 tuổi</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">5-6 tuổi</span>
-                                        </div>
-                                        <p class="card-text">Xây dựng nền tảng tiếng Anh cơ bản với từ vựng đơn giản và
-                                            câu giao
-                                            tiếp hàng ngày.</p>
-                                        <ul class="mb-3">
-                                            <li>Từ vựng theo chủ đề</li>
-                                            <li>Mẫu câu giao tiếp cơ bản</li>
-                                            <li>Phát âm chuẩn</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Kinder 6-7 -->
-                            <div id="kinder-6-7" class="col-md-6 col-lg-3">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Lớp 6-7 tuổi</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">6-7 tuổi</span>
-                                        </div>
-                                        <p class="card-text">Phát triển kỹ năng nghe nói và chuẩn bị nền tảng cho việc
-                                            học tiếng
-                                            Anh học thuật.</p>
-                                        <ul class="mb-3">
-                                            <li>Ngữ pháp cơ bản</li>
-                                            <li>Kỹ năng đọc viết đơn giản</li>
-                                            <li>Phản xạ giao tiếp</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- EKid -->
-                            <div id="ekid" class="col-md-6 col-lg-3">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Lớp EKid</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">7-12 tuổi</span>
-                                        </div>
-                                        <p class="card-text">Chương trình tiếng Anh nâng cao cho trẻ em với giáo trình
-                                            quốc tế
-                                            và phương pháp hiện đại.</p>
-                                        <ul class="mb-3">
-                                            <li>4 kỹ năng toàn diện</li>
-                                            <li>Giáo trình Cambridge</li>
-                                            <li>Luyện phát âm chuẩn</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IELTS -->
-                    <div id="english-ielts" class="mb-5">
-                        <h3 class="mb-4">Lớp Luyện Thi IELTS</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Luyện Thi IELTS</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">12+ tuổi</span>
-                                            <span class="course-age-badge">Người lớn</span>
-                                        </div>
-                                        <p class="card-text">Khóa học luyện thi IELTS chuyên sâu với giáo viên giàu kinh
-                                            nghiệm
-                                            và giáo trình cập nhật.</p>
-                                        <ul class="mb-3">
-                                            <li>Lộ trình cá nhân hóa</li>
-                                            <li>Giáo viên 8.0+ IELTS</li>
-                                            <li>Thi thử miễn phí</li>
-                                            <li>Cam kết đầu ra</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-4 bg-light rounded h-100">
-                                    <h5>Lộ trình học IELTS</h5>
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Foundation</div>
-                                    </div>
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Pre-IELTS</div>
-                                    </div>
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"
-                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">IELTS 5.0-6.0</div>
-                                    </div>
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">IELTS 6.5+</div>
-                                    </div>
-                                    <p>Học viên sẽ được kiểm tra đầu vào và xếp lớp phù hợp với trình độ hiện tại.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- English for Adults -->
-                    <div id="english-adults" class="mb-5">
-                        <h3 class="mb-4">Tiếng Anh Người Lớn</h3>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Giao Tiếp Cơ Bản</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">Người lớn</span>
-                                        </div>
-                                        <p class="card-text">Khóa học dành cho người mới bắt đầu hoặc mất gốc tiếng Anh.
-                                        </p>
-                                        <ul class="mb-3">
-                                            <li>Từ vựng thông dụng</li>
-                                            <li>Mẫu câu giao tiếp</li>
-                                            <li>Phát âm cơ bản</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Tiếng Anh Công Sở</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">Người lớn</span>
-                                        </div>
-                                        <p class="card-text">Tiếng Anh chuyên ngành cho môi trường làm việc.</p>
-                                        <ul class="mb-3">
-                                            <li>Giao tiếp văn phòng</li>
-                                            <li>Viết email, báo cáo</li>
-                                            <li>Thuyết trình cơ bản</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Lớp Luyện Nói</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">Người lớn</span>
-                                        </div>
-                                        <p class="card-text">Lớp học chuyên về giao tiếp với giáo viên bản ngữ.</p>
-                                        <ul class="mb-3">
-                                            <li>100% thời gian nói</li>
-                                            <li>Chủ đề đa dạng</li>
-                                            <li>Sửa lỗi phát âm</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Chinese Courses -->
-                <section id="chinese-courses" class="course-section">
-                    <div class="course-header">
-                        <h2 class="display-5 fw-bold">Khóa Học Tiếng Trung</h2>
-                        <p class="lead">Chương trình đào tạo tiếng Trung chất lượng</p>
-                    </div>
-
-                    <div id="chinese-adults" class="mb-5">
-                        <h3 class="mb-4">Tiếng Trung Người Lớn</h3>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Tiếng Trung Cơ Bản</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">HSK1</span>
-                                        </div>
-                                        <p class="card-text">Khóa học dành cho người mới bắt đầu học tiếng Trung.</p>
-                                        <ul class="mb-3">
-                                            <li>Phiên âm Pinyin</li>
-                                            <li>214 bộ thủ cơ bản</li>
-                                            <li>Giao tiếp hàng ngày</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Tiếng Trung Trung Cấp</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">HSK3-4</span>
-                                        </div>
-                                        <p class="card-text">Nâng cao kỹ năng nghe nói đọc viết tiếng Trung.</p>
-                                        <ul class="mb-3">
-                                            <li>Ngữ pháp nâng cao</li>
-                                            <li>Thảo luận chủ đề phức tạp</li>
-                                            <li>Luyện thi HSK</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="course-card h-100">
-                                    <div class="course-card-body">
-                                        <h5>Tiếng Trung Thương Mại</h5>
-                                        <div class="mb-2">
-                                            <span class="course-age-badge">HSK4+</span>
-                                        </div>
-                                        <p class="card-text">Tiếng Trung chuyên ngành kinh doanh, thương mại.</p>
-                                        <ul class="mb-3">
-                                            <li>Từ vựng chuyên ngành</li>
-                                            <li>Đàm phán, hợp đồng</li>
-                                            <li>Văn hóa kinh doanh</li>
-                                        </ul>
-                                        <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Japanese Courses -->
-                <section id="japanese-courses" class="course-section">
-                    <div class="course-header">
-                        <h2 class="display-5 fw-bold">Khóa Học Tiếng Nhật</h2>
-                        <p class="lead">Chương trình đào tạo tiếng Nhật chất lượng</p>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="course-card h-100">
-                                <div class="course-card-body">
-                                    <h5>Tiếng Nhật Sơ Cấp</h5>
-                                    <div class="mb-2">
-                                        <span class="course-age-badge">N5</span>
-                                    </div>
-                                    <p class="card-text">Khóa học dành cho người mới bắt đầu học tiếng Nhật.</p>
-                                    <ul class="mb-3">
-                                        <li>Bảng chữ Hiragana, Katakana</li>
-                                        <li>Ngữ pháp cơ bản</li>
-                                        <li>Giao tiếp hàng ngày</li>
-                                    </ul>
-                                    <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="course-card h-100">
-                                <div class="course-card-body" id="#japanese-adults">
-                                    <h5>Tiếng Nhật Trung Cấp</h5>
-                                    <div class="mb-2">
-                                        <span class="course-age-badge">N3-N4</span>
-                                    </div>
-                                    <p class="card-text">Nâng cao kỹ năng nghe nói đọc viết tiếng Nhật.</p>
-                                    <ul class="mb-3">
-                                        <li>Kanji thông dụng</li>
-                                        <li>Ngữ pháp nâng cao</li>
-                                        <li>Luyện thi JLPT</li>
-                                    </ul>
-                                    <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="course-card h-100">
-                                <div class="course-card-body">
-                                    <h5>Tiếng Nhật Doanh Nghiệp</h5>
-                                    <div class="mb-2">
-                                        <span class="course-age-badge">N2+</span>
-                                    </div>
-                                    <p class="card-text">Tiếng Nhật chuyên ngành kinh doanh, văn phòng.</p>
-                                    <ul class="mb-3">
-                                        <li>Từ vựng chuyên ngành</li>
-                                        <li>Văn hóa công sở Nhật</li>
-                                        <li>Kỹ năng phỏng vấn</li>
-                                    </ul>
-                                    <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+    <!-- Main -->
+    <div class="main-content">
+      <!-- English -->
+      <section id="english-courses" class="course-section">
+        <div class="course-header">
+          <h2 class="display-5 fw-bold">Khóa Học Tiếng Anh</h2>
+          <p class="lead">Chương trình đào tạo tiếng Anh chất lượng cho mọi lứa tuổi</p>
         </div>
 
-        
-    <!-- Footer -->
-    <%- include('_footer') %>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Kinder English -->
+        <div id="english-kinder" class="mb-5">
+          <h3 class="mb-4">Lớp Tiếng Anh Trẻ Em</h3>
+          <div class="row">
+            <!-- 4-5 -->
+            <div id="kinder-4-5" class="col-md-6 col-lg-3">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Lớp 4-5 tuổi</h5>
+                  <div class="mb-2"><span class="course-age-badge">4-5 tuổi</span></div>
+                  <p class="card-text">Khóa học tiếng Anh vui nhộn giúp trẻ làm quen với ngôn ngữ qua trò chơi và bài hát.</p>
+                  <ul class="mb-3">
+                    <li>Học qua hình ảnh, âm nhạc</li>
+                    <li>Phát triển phản xạ ngôn ngữ</li>
+                    <li>Làm quen bảng chữ cái</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <!-- 5-6 -->
+            <div id="kinder-5-6" class="col-md-6 col-lg-3">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Lớp 5-6 tuổi</h5>
+                  <div class="mb-2"><span class="course-age-badge">5-6 tuổi</span></div>
+                  <p class="card-text">Xây dựng nền tảng tiếng Anh cơ bản với từ vựng đơn giản và câu giao tiếp hàng ngày.</p>
+                  <ul class="mb-3">
+                    <li>Từ vựng theo chủ đề</li>
+                    <li>Mẫu câu giao tiếp cơ bản</li>
+                    <li>Phát âm chuẩn</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <!-- 6-7 -->
+            <div id="kinder-6-7" class="col-md-6 col-lg-3">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Lớp 6-7 tuổi</h5>
+                  <div class="mb-2"><span class="course-age-badge">6-7 tuổi</span></div>
+                  <p class="card-text">Phát triển kỹ năng nghe nói và chuẩn bị nền tảng cho tiếng Anh học thuật.</p>
+                  <ul class="mb-3">
+                    <li>Ngữ pháp cơ bản</li>
+                    <li>Kỹ năng đọc viết đơn giản</li>
+                    <li>Phản xạ giao tiếp</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <!-- EKid -->
+            <div id="ekid" class="col-md-6 col-lg-3">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Lớp EKid</h5>
+                  <div class="mb-2"><span class="course-age-badge">7-12 tuổi</span></div>
+                  <p class="card-text">Chương trình nâng cao với giáo trình quốc tế và phương pháp hiện đại.</p>
+                  <ul class="mb-3">
+                    <li>4 kỹ năng toàn diện</li>
+                    <li>Giáo trình Cambridge</li>
+                    <li>Luyện phát âm chuẩn</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IELTS -->
+        <div id="english-ielts" class="mb-5">
+          <h3 class="mb-4">Lớp Luyện Thi IELTS</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Luyện Thi IELTS</h5>
+                  <div class="mb-2"><span class="course-age-badge">12+ tuổi</span><span class="course-age-badge">Người lớn</span></div>
+                  <p class="card-text">Khóa học chuyên sâu với giáo viên giàu kinh nghiệm và giáo trình cập nhật.</p>
+                  <ul class="mb-3">
+                    <li>Lộ trình cá nhân hóa</li>
+                    <li>Giáo viên 8.0+ IELTS</li>
+                    <li>Thi thử miễn phí</li>
+                    <li>Cam kết đầu ra</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 bg-light rounded h-100">
+                <h5>Lộ trình học IELTS</h5>
+                <div class="progress mb-3"><div class="progress-bar bg-success" role="progressbar" style="width:25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Foundation</div></div>
+                <div class="progress mb-3"><div class="progress-bar bg-info" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Pre-IELTS</div></div>
+                <div class="progress mb-3"><div class="progress-bar bg-warning" role="progressbar" style="width:75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">IELTS 5.0-6.0</div></div>
+                <div class="progress mb-3"><div class="progress-bar bg-danger" role="progressbar" style="width:100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">IELTS 6.5+</div></div>
+                <p>Học viên được kiểm tra đầu vào và xếp lớp phù hợp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adults -->
+        <div id="english-adults" class="mb-5">
+          <h3 class="mb-4">Tiếng Anh Người Lớn</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Giao Tiếp Cơ Bản</h5>
+                  <div class="mb-2"><span class="course-age-badge">Người lớn</span></div>
+                  <p class="card-text">Dành cho người mới bắt đầu hoặc mất gốc.</p>
+                  <ul class="mb-3">
+                    <li>Từ vựng thông dụng</li>
+                    <li>Mẫu câu giao tiếp</li>
+                    <li>Phát âm cơ bản</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Tiếng Anh Công Sở</h5>
+                  <div class="mb-2"><span class="course-age-badge">Người lớn</span></div>
+                  <p class="card-text">Tiếng Anh chuyên ngành cho môi trường làm việc.</p>
+                  <ul class="mb-3">
+                    <li>Giao tiếp văn phòng</li>
+                    <li>Viết email, báo cáo</li>
+                    <li>Thuyết trình cơ bản</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Lớp Luyện Nói</h5>
+                  <div class="mb-2"><span class="course-age-badge">Người lớn</span></div>
+                  <p class="card-text">Lớp học chuyên về giao tiếp với giáo viên bản ngữ.</p>
+                  <ul class="mb-3">
+                    <li>100% thời gian nói</li>
+                    <li>Chủ đề đa dạng</li>
+                    <li>Sửa lỗi phát âm</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chinese -->
+      <section id="chinese-courses" class="course-section">
+        <div class="course-header">
+          <h2 class="display-5 fw-bold">Khóa Học Tiếng Trung</h2>
+          <p class="lead">Chương trình đào tạo tiếng Trung chất lượng</p>
+        </div>
+
+        <div id="chinese-adults" class="mb-5">
+          <h3 class="mb-4">Tiếng Trung Người Lớn</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Tiếng Trung Cơ Bản</h5>
+                  <div class="mb-2"><span class="course-age-badge">HSK1</span></div>
+                  <p class="card-text">Dành cho người mới bắt đầu học tiếng Trung.</p>
+                  <ul class="mb-3">
+                    <li>Phiên âm Pinyin</li>
+                    <li>214 bộ thủ cơ bản</li>
+                    <li>Giao tiếp hàng ngày</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Tiếng Trung Trung Cấp</h5>
+                  <div class="mb-2"><span class="course-age-badge">HSK3-4</span></div>
+                  <p class="card-text">Nâng cao kỹ năng nghe nói đọc viết.</p>
+                  <ul class="mb-3">
+                    <li>Ngữ pháp nâng cao</li>
+                    <li>Thảo luận chủ đề phức tạp</li>
+                    <li>Luyện thi HSK</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="course-card h-100">
+                <div class="course-card-body">
+                  <h5>Tiếng Trung Thương Mại</h5>
+                  <div class="mb-2"><span class="course-age-badge">HSK4+</span></div>
+                  <p class="card-text">Chuyên ngành kinh doanh, thương mại.</p>
+                  <ul class="mb-3">
+                    <li>Từ vựng chuyên ngành</li>
+                    <li>Đàm phán, hợp đồng</li>
+                    <li>Văn hóa kinh doanh</li>
+                  </ul>
+                  <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Japanese -->
+      <section id="japanese-courses" class="course-section">
+        <div class="course-header">
+          <h2 class="display-5 fw-bold">Khóa Học Tiếng Nhật</h2>
+          <p class="lead">Chương trình đào tạo tiếng Nhật chất lượng</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="course-card h-100">
+              <div class="course-card-body">
+                <h5>Tiếng Nhật Sơ Cấp</h5>
+                <div class="mb-2"><span class="course-age-badge">N5</span></div>
+                <p class="card-text">Dành cho người mới bắt đầu.</p>
+                <ul class="mb-3">
+                  <li>Hiragana, Katakana</li>
+                  <li>Ngữ pháp cơ bản</li>
+                  <li>Giao tiếp hàng ngày</li>
+                </ul>
+                <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="course-card h-100">
+              <div class="course-card-body" id="japanese-adults">
+                <h5>Tiếng Nhật Trung Cấp</h5>
+                <div class="mb-2"><span class="course-age-badge">N3-N4</span></div>
+                <p class="card-text">Nâng cao kỹ năng nghe nói đọc viết.</p>
+                <ul class="mb-3">
+                  <li>Kanji thông dụng</li>
+                  <li>Ngữ pháp nâng cao</li>
+                  <li>Luyện thi JLPT</li>
+                </ul>
+                <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="course-card h-100">
+              <div class="course-card-body">
+                <h5>Tiếng Nhật Doanh Nghiệp</h5>
+                <div class="mb-2"><span class="course-age-badge">N2+</span></div>
+                <p class="card-text">Chuyên ngành kinh doanh, văn phòng.</p>
+                <ul class="mb-3">
+                  <li>Từ vựng chuyên ngành</li>
+                  <li>Văn hóa công sở Nhật</li>
+                  <li>Kỹ năng phỏng vấn</li>
+                </ul>
+                <a href="/contact" class="btn btn-rainbow">Đăng ký ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /main-content -->
+  </div><!-- /content-wrapper -->
+
+  <%- include('_footer') %>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
