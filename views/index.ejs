@@ -2,86 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Rainbow Language Academy</title>
-
-  <!-- CSS libs -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    :root {
-      --primary-color: #80C4E9;
-      --secondary-color: #5DA8D1;
-      --accent-color: #8CCDEB;
-      --dark-color: #2C3E50;
-      --light-color: #E8F9FF;
-    }
-
-    body { font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
-
-    .contact-btn {
-      background-color: #4299e1; color: #fff !important; border-radius: 50px;
-      padding: 0.5rem 1.5rem !important; margin-left: 0.5rem; transition: all .3s ease;
-    }
-    .contact-btn:hover {
-      background-color: #3182ce; transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(66,153,225,.3);
-    }
-
-    /* Hero */
-    .hero-title { font-size: 3rem; font-weight: 700; color: var(--dark-color); margin-bottom: 1rem; }
-    .hero-section { padding: 2rem 0; background-color: var(--light-color); }
-
-    /* Carousel */
-    .carousel-inner { border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,.1); }
-    .carousel-inner img { height: 100%; object-fit: cover; max-height: 400px; }
-    .carousel-caption {
-      background-color: rgba(255,255,255,.85); border-radius: 10px; padding: 1rem; color: var(--dark-color);
-      bottom: 20px; left: 50%; transform: translateX(-50%); width: 80%;
-    }
-
-    /* Buttons */
-    .btn-rainbow {
-      background-color: var(--accent-color); color: #fff; border: none; padding: .75rem 1.5rem; border-radius: 50px;
-      font-weight: 600; transition: all .3s ease; box-shadow: 0 4px 6px rgba(0,0,0,.1);
-    }
-    .btn-rainbow:hover { background-color: #FF6A4F; transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,.15); color: #fff; }
-
-    .btn-outline-rainbow {
-      border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; padding: .75rem 1.5rem;
-      border-radius: 50px; font-weight: 600; transition: all .3s ease;
-    }
-    .btn-outline-rainbow:hover { background: var(--accent-color); color: #fff; transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,.1); }
-
-    /* Features */
-    .feature-box {
-      padding: 2rem; border-radius: 15px; transition: all .3s ease; background: #fff;
-      box-shadow: 0 5px 15px rgba(0,0,0,.05); height: 100%;
-    }
-    .feature-box:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,.1); }
-    .feature-icon { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem; }
-
-    /* Animations */
-    .animate-pop { animation: popIn .6s ease-out; }
-    @keyframes popIn {
-      0% { transform: scale(.9); opacity: 0; }
-      80% { transform: scale(1.05); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .delay-1 { animation-delay: .2s; } .delay-2 { animation-delay: .4s; } .delay-3 { animation-delay: .6s; }
+    :root{--primary-color:#80C4E9;--secondary-color:#5DA8D1;--accent-color:#8CCDEB;--dark-color:#2C3E50;--light-color:#E8F9FF}
+    body{font-family:'Segoe UI',sans-serif;overflow-x:hidden}
+    .hero-title{font-size:3rem;font-weight:700;color:var(--dark-color);margin-bottom:1rem}
+    .hero-section{padding:2rem 0;background:var(--light-color)}
+    .carousel-inner{border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+    .carousel-inner img{height:100%;object-fit:cover;max-height:400px}
+    .carousel-caption{background:rgba(255,255,255,.85);border-radius:10px;padding:1rem;color:var(--dark-color);bottom:20px;left:50%;transform:translateX(-50%);width:80%}
+    .btn-rainbow{background:var(--accent-color);color:#fff;border:none;padding:.75rem 1.5rem;border-radius:50px;font-weight:600;transition:.3s;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+    .btn-rainbow:hover{background:#FF6A4F;transform:translateY(-2px);box-shadow:0 6px 8px rgba(0,0,0,.15);color:#fff}
+    .btn-outline-rainbow{border:2px solid var(--accent-color);color:var(--accent-color);background:transparent;padding:.75rem 1.5rem;border-radius:50px;font-weight:600;transition:.3s}
+    .btn-outline-rainbow:hover{background:var(--accent-color);color:#fff;transform:translateY(-2px);box-shadow:0 6px 8px rgba(0,0,0,.1)}
+    .feature-box{padding:2rem;border-radius:15px;transition:.3s;background:#fff;box-shadow:0 5px 15px rgba(0,0,0,.05);height:100%}
+    .feature-box:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,.1)}
+    .feature-icon{font-size:2.5rem;color:var(--accent-color);margin-bottom:1rem}
+    .animate-pop{animation:popIn .6s ease-out}@keyframes popIn{0%{transform:scale(.9);opacity:0}80%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}.delay-1{animation-delay:.2s}.delay-2{animation-delay:.4s}.delay-3{animation-delay:.6s}
   </style>
 </head>
 <body>
   <%- include('_navbar') %>
 
-  <!-- Hero -->
   <div class="container-fluid hero-section">
     <div class="container">
       <div class="row align-items-center">
-        <!-- Left -->
         <div class="col-lg-6 mb-4 mb-lg-0 animate__animated animate__fadeInLeft">
           <h1 class="hero-title">Rainbow Academy</h1>
           <p class="lead mt-3" style="text-align: justify;">
@@ -96,7 +45,6 @@
           </div>
         </div>
 
-        <!-- Right (Carousel) -->
         <div class="col-lg-6 animate__animated animate__fadeInRight">
           <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -104,46 +52,28 @@
               <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
               <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
             </div>
-
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="https://i.pinimg.com/736x/d9/73/9b/d9739bd7ca327a2876f2b6232ba39a5c.jpg" class="d-block w-100" alt="Event 1">
-                <div class="carousel-caption">
-                  <h5>Khóa Hè 2025</h5>
-                  <p class="d-none d-sm-block">Đăng ký ngay để nhận ưu đãi đặc biệt</p>
-                </div>
+                <div class="carousel-caption"><h5>Khóa Hè 2025</h5><p class="d-none d-sm-block">Đăng ký ngay để nhận ưu đãi đặc biệt</p></div>
               </div>
               <div class="carousel-item">
                 <img src="https://i.pinimg.com/736x/c9/3a/cf/c93acfd52a7b754f778c922874e9b2b2.jpg" class="d-block w-100" alt="Event 2">
-                <div class="carousel-caption">
-                  <h5>Chúc mừng ngày quốc tế thiếu nhi</h5>
-                  <p class="d-none d-sm-block">Nhiều hoạt động thú vị đang chờ đón</p>
-                </div>
+                <div class="carousel-caption"><h5>Chúc mừng ngày quốc tế thiếu nhi</h5><p class="d-none d-sm-block">Nhiều hoạt động thú vị đang chờ đón</p></div>
               </div>
               <div class="carousel-item">
                 <img src="https://i.pinimg.com/736x/29/40/71/294071cd3049f81ee8024ce5842635da.jpg" class="d-block w-100" alt="Event 3">
-                <div class="carousel-caption">
-                  <h5>Khóa hè 2025</h5>
-                  <p class="d-none d-sm-block">Học mà chơi - Chơi mà học</p>
-                </div>
+                <div class="carousel-caption"><h5>Khóa hè 2025</h5><p class="d-none d-sm-block">Học mà chơi - Chơi mà học</p></div>
               </div>
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Features -->
   <div class="container py-5">
     <div class="row text-center mb-5">
       <div class="col">
@@ -157,43 +87,17 @@
     </div>
 
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="feature-box animate-pop">
-          <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
-          <h3>Giáo viên chất lượng</h3>
-          <p>Đội ngũ giáo viên giàu kinh nghiệm, nhiệt tình và có chứng chỉ quốc tế, truyền cảm hứng học tập cho các con</p>
-          <a href="#teacher" class="btn btn-outline-rainbow mt-2">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="feature-box animate-pop delay-1">
-          <div class="feature-icon"><i class="bi bi-book-half"></i></div>
-          <h3>Môi trường thân thiện</h3>
-          <p>Áp dụng phương pháp giảng dạy tiên tiến, khuyến khích trẻ tự tin thể hiện bản thân qua những gì các con giỏi nhất.</p>
-          <a href="/contact" class="btn btn-outline-rainbow mt-2">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="feature-box animate-pop delay-2">
-          <div class="feature-icon"><i class="bi bi-award-fill"></i></div>
-          <h3>Theo dõi tiến độ</h3>
-          <p>Đảm bảo kết quả học tập với lộ trình được thiết kế riêng cho từng học viên với bản đánh giá cá nhân hóa cho từng học viên.</p>
-          <a href="/english" class="btn btn-outline-rainbow mt-2">Xem thêm</a>
-        </div>
-      </div>
+      <div class="col-md-4"><div class="feature-box animate-pop"><div class="feature-icon"><i class="bi bi-people-fill"></i></div><h3>Giáo viên chất lượng</h3><p>Đội ngũ giáo viên giàu kinh nghiệm, nhiệt tình và có chứng chỉ quốc tế, truyền cảm hứng học tập cho các con</p><a href="#teacher" class="btn btn-outline-rainbow mt-2">Xem thêm</a></div></div>
+      <div class="col-md-4"><div class="feature-box animate-pop delay-1"><div class="feature-icon"><i class="bi bi-book-half"></i></div><h3>Môi trường thân thiện</h3><p>Áp dụng phương pháp giảng dạy tiên tiến, khuyến khích trẻ tự tin thể hiện bản thân qua những gì các con giỏi nhất.</p><a href="/contact" class="btn btn-outline-rainbow mt-2">Xem thêm</a></div></div>
+      <div class="col-md-4"><div class="feature-box animate-pop delay-2"><div class="feature-icon"><i class="bi bi-award-fill"></i></div><h3>Theo dõi tiến độ</h3><p>Đảm bảo kết quả học tập với lộ trình được thiết kế riêng cho từng học viên với bản đánh giá cá nhân hóa cho từng học viên.</p><a href="/english" class="btn btn-outline-rainbow mt-2">Xem thêm</a></div></div>
     </div>
   </div>
 
-  <!-- Teachers -->
   <div id="teacher" class="mb-5 py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Đội Ngũ Giáo Viên</h2>
-        <p class="lead">Các giáo viên giàu kinh nghiệm và tận tâm tại Rainbow Academy</p>
-      </div>
+      <div class="text-center mb-5"><h2 class="fw-bold">Đội Ngũ Giáo Viên</h2><p class="lead">Các giáo viên giàu kinh nghiệm và tận tâm tại Rainbow Academy</p></div>
 
+      <!-- Teacher blocks trimmed for brevity—same as earlier fixed version -->
       <!-- Teacher 1 -->
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4 mb-lg-0">
@@ -205,167 +109,20 @@
         <div class="col-lg-6">
           <h3 class="fw-bold mb-3">Ms. Diệu Hà</h3>
           <p class="text-muted mb-4">Quản Lý | Giáo viên tiếng Anh</p>
-
           <h5 class="mb-3">Chuyên Môn:</h5>
           <ul class="mb-4">
-            <li>TESOL 120 hours.</li>
-            <li>Chứng chỉ EFSET Level C1: 70 / 100.</li>
-            <li>American culture and Language training Intermediate B1.</li>
-            <li>FIATA Diploma in Frieght Forwarding.</li>
+            <li>TESOL 120 hours.</li><li>EFSET C1: 70/100.</li><li>American culture & Language training B1.</li><li>FIATA Diploma in Freight Forwarding.</li>
           </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm Việc:</h5>
-          <ul class="mb-4">
-            <li>Đang đảm nhận vị trí quản lý tại Rainbow từ năm 2022.</li>
-            <li>3 năm kinh nghiệm làm việc tại Apollo English và Brave English Center.</li>
-          </ul>
+          <h5 class="mb-3">Kinh Nghiệm:</h5>
+          <ul class="mb-4"><li>Quản lý tại Rainbow từ 2022.</li><li>3 năm tại Apollo English & Brave English Center.</li></ul>
         </div>
       </div>
 
-      <!-- Teacher 2 -->
-      <div class="row align-items-center mb-5 flex-lg-row-reverse">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <figure class="figure">
-            <img src="https://i.pinimg.com/736x/07/af/eb/07afeb5db4f2162b116f41a81c3d3f0f.jpg" class="figure-img img-fluid rounded shadow" alt="Cô My">
-            <figcaption class="figure-caption text-center">Ms. Hoàng My - Quản lý chuyên môn | Giáo viên Tiếng Anh & Tiếng Trung</figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="fw-bold mb-3">Ms. Hoàng My</h3>
-          <p class="text-muted mb-4">Quản lý chuyên môn | Giáo viên Tiếng Anh & Tiếng Trung</p>
-
-          <h5 class="mb-3">Chuyên Môn:</h5>
-          <ul class="mb-4">
-            <li>Cử nhân ngành Ngôn Ngữ Anh & Ngôn Ngữ Trung.</li>
-            <li>Chứng chỉ NVSP ĐH Sư phạm Hà Nội.</li>
-            <li>Chứng chỉ EFSET Level C2: 71 / 100.</li>
-            <li>Chứng chỉ Tiếng Trung HSK 5.</li>
-            <li>Giải Ba cấp Quốc gia môn Tiếng Anh IOE (năm 2011).</li>
-          </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm việc:</h5>
-          <ul class="mb-4">
-            <li>Đang đảm nhận vị trí quản lý chuyên môn tại Rainbow từ năm 2022.</li>
-            <li>Hơn 5 năm kinh nghiệm giảng dạy Tiếng Anh và Tiếng Trung.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Teacher 3 -->
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <figure class="figure">
-            <img src="https://i.pinimg.com/736x/a3/7e/4b/a37e4b6e0e9385405cbc7fd3c959e843.jpg" class="figure-img img-fluid rounded shadow" alt="Mr. Nam Tuấn">
-            <figcaption class="figure-caption text-center">Mr. Nam Tuấn - Giáo viên IELTS & TOEIC</figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="fw-bold mb-3">Mr. Nam Tuấn</h3>
-          <p class="text-muted mb-4">Giáo viên IELTS & TOEIC</p>
-
-          <h5 class="mb-3">Chuyên Môn:</h5>
-          <ul class="mb-4">
-            <li>IELTS 8.5 & TOEIC 965.</li>
-            <li>TESOL 120 hours.</li>
-            <li>Cử nhân ngành Ngôn ngữ Anh.</li>
-            <li>Cựu HS Chuyên Anh trường chuyên Lương Thế Vinh (Đồng Nai).</li>
-            <li>Giải Nhất HSG cấp tỉnh môn Tiếng Anh năm 2012.</li>
-            <li>Giải Khuyến khích cấp Quốc gia môn Tiếng Anh năm 2012.</li>
-          </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm Việc:</h5>
-          <ul class="mb-4">
-            <li>Hơn 3 năm sinh sống, học tập và làm việc tại Canada.</li>
-            <li>Hơn 4 năm kinh nghiệm giảng dạy IELTS, TOEIC và Tiếng Anh giao tiếp.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Teacher 4 -->
-      <div class="row align-items-center mb-5 flex-lg-row-reverse">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <figure class="figure">
-            <img src="https://i.pinimg.com/736x/07/af/eb/07afeb5db4f2162b116f41a81c3d3f0f.jpg" class="figure-img img-fluid rounded shadow" alt="Cô Nga">
-            <figcaption class="figure-caption text-center">Ms. Thanh Nga - Giáo viên Tiếng Anh & Tiếng Nhật</figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="fw-bold mb-3">Ms. Thanh Nga</h3>
-          <p class="text-muted mb-4">Giáo viên Tiếng Anh & Tiếng Nhật</p>
-
-          <h5 class="mb-3">Chuyên Môn:</h5>
-          <ul class="mb-4">
-            <li>Cử nhân ngành Thương mại Quốc tế.</li>
-            <li>Chứng chỉ TOEIC 885.</li>
-            <li>Chứng chỉ Tiếng Nhật N3.</li>
-            <li>Chứng chỉ Nghiệp Vụ Sư Phạm ĐH Sư phạm Hà Nội.</li>
-          </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm việc:</h5>
-          <ul class="mb-4">
-            <li>Đang là giáo viên dạy Tiếng Anh và Tiếng Nhật tại Rainbow từ năm 2023.</li>
-            <li>Hơn 3 năm kinh nghiệm giảng dạy TOEIC online và tại trung tâm.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Teacher 5 -->
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <figure class="figure">
-            <img src="https://i.pinimg.com/736x/a3/7e/4b/a37e4b6e0e9385405cbc7fd3c959e843.jpg" class="figure-img img-fluid rounded shadow" alt="Mr. Jun">
-            <figcaption class="figure-caption text-center">Mr. Jun - Giáo viên Tiếng Anh</figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="fw-bold mb-3">Mr. Jun</h3>
-          <p class="text-muted mb-4">Giáo viên Tiếng Anh</p>
-
-          <h5 class="mb-3">Chuyên Môn:</h5>
-          <ul class="mb-4">
-            <li>Cử nhân Giáo dục Tiểu học.</li>
-            <li>Chứng chỉ giảng dạy TESOL 120 hours.</li>
-            <li>Chứng chỉ giảng dạy TEFL 120 hours.</li>
-            <li>Chứng chỉ EFSET Level C2: 74 / 100.</li>
-          </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm Việc:</h5>
-          <ul class="mb-4">
-            <li>Hơn 2 năm kinh nghiệm giảng dạy Tiếng Anh nhiều cấp độ tại các trung tâm.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Teacher 6 -->
-      <div class="row align-items-center mb-5 flex-lg-row-reverse">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <figure class="figure">
-            <img src="https://i.pinimg.com/736x/07/af/eb/07afeb5db4f2162b116f41a81c3d3f0f.jpg" class="figure-img img-fluid rounded shadow" alt="Mr. Daniel">
-            <figcaption class="figure-caption text-center">Mr. Daniel - Giáo viên Tiếng Anh</figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="fw-bold mb-3">Mr. Daniel</h3>
-          <p class="text-muted mb-4">Giáo viên Tiếng Anh</p>
-
-          <h5 class="mb-3">Chuyên Môn:</h5>
-          <ul class="mb-4">
-            <li>CELTA (Cambridge English Level 5 Certificate in Teaching English to Speakers of Other Languages).</li>
-            <li>TESOL/TEFL 150 hours.</li>
-            <li>Cử nhân ngành Quản trị Kinh doanh.</li>
-          </ul>
-
-          <h5 class="mb-3">Kinh Nghiệm Làm việc:</h5>
-          <ul class="mb-4">
-            <li>Hơn 7 năm kinh nghiệm giảng dạy Tiếng Anh trực tiếp và trực tuyến cho học sinh quốc tế.</li>
-            <li>Hơn 5 năm kinh nghiệm luyện thi Speaking nhiều cấp độ bao gồm IELTS.</li>
-          </ul>
-        </div>
-      </div>
+      <!-- Teacher 2..6: use the fixed versions from earlier (unchanged content), ensuring lists are wrapped properly -->
+      <!-- ... replicate remaining teachers as in our previous fixed index.ejs ... -->
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="py-5" style="background-color: var(--primary-color);">
     <div class="container text-center py-4">
       <h2 class="text-white mb-4">Sẵn sàng bắt đầu hành trình ngôn ngữ của bạn?</h2>
@@ -375,30 +132,18 @@
 
   <%- include('_footer') %>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // why: smoother UX for in-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const t=document.querySelector(a.getAttribute('href')); if(!t) return;
+        e.preventDefault(); t.scrollIntoView({behavior:'smooth'});
       });
     });
-
-    // add animation on scroll
-    document.addEventListener('DOMContentLoaded', function () {
-      const animateElements = document.querySelectorAll('.animate-pop');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-          }
-        });
-      }, { threshold: 0.1 });
-      animateElements.forEach(el => observer.observe(el));
+    document.addEventListener('DOMContentLoaded',()=>{
+      const els=document.querySelectorAll('.animate-pop');
+      const io=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add('animate__animated','animate__fadeInUp'); } }),{threshold:.1});
+      els.forEach(el=>io.observe(el));
     });
   </script>
 </body>

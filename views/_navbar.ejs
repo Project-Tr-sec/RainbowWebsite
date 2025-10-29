@@ -1,114 +1,35 @@
+<!-- file: views/_navbar.ejs -->
 <style>
-    /* Navbar Styles */
-    .navbar-custom {
-        background-color: #ffffff;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-    }
-
-    .navbar-brand img {
-        height: 60px;
-        transition: all 0.3s ease;
-    }
-
-    .navbar-brand img:hover {
-        transform: scale(1.05);
-    }
-
-    .navbar-custom .nav-link {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #4a5568;
-        margin: 0 0.5rem;
-        padding: 0.5rem 1rem;
-        position: relative;
-        transition: all 0.3s ease;
-    }
-
-    .navbar-custom .nav-link:hover {
-        color: #2d3748;
-    }
-
-    .navbar-custom .nav-link:before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #4299e1;
-        visibility: hidden;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .navbar-custom .nav-link:hover:before {
-        visibility: visible;
-        width: 100%;
-    }
-
-    .navbar-custom .active {
-        color: #4299e1 !important;
-    }
-
-    .navbar-custom .active:before {
-        visibility: visible;
-        width: 100%;
-    }
-
-    /* Responsive */
-    @media (min-width: 992px) {
-        .hero-title {
-            font-size: 4rem;
-        }
-
-        .navbar-custom {
-            padding: 0.5rem 0;
-        }
-
-        .navbar-nav .nav-link {
-            padding: 0.5rem 1rem;
-            margin: 0 0.25rem;
-        }
-
-        .active.nav-link {
-            border-radius: 50px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .navbar-brand img {
-            height: 50px;
-        }
-    }
+  .navbar-custom{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.1);padding:1rem 0}
+  .navbar-brand img{height:60px;transition:.3s} .navbar-brand img:hover{transform:scale(1.05)}
+  .navbar-custom .nav-link{font-size:1.1rem;font-weight:600;color:#4a5568;margin:0 .5rem;padding:.5rem 1rem;position:relative;transition:.3s}
+  .navbar-custom .nav-link:hover{color:#2d3748}
+  .navbar-custom .nav-link:before{content:'';position:absolute;width:0;height:2px;bottom:0;left:0;background:#4299e1;visibility:hidden;transition:.3s}
+  .navbar-custom .nav-link:hover:before,.navbar-custom .active:before{visibility:visible;width:100%}
+  .navbar-custom .active{color:#4299e1!important}
+  .contact-btn{background:#4299e1;color:#fff!important;border-radius:50px;padding:.5rem 1.5rem!important;margin-left:.5rem;transition:.3s}
+  .contact-btn:hover{background:#3182ce;transform:translateY(-2px);box-shadow:0 4px 8px rgba(66,153,225,.3)}
+  @media (max-width:992px){.navbar-brand img{height:50px}}
 </style>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="Logo.png" alt="Rainbow Language Academy">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">Trang chủ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/english">Tiếng Anh</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/english#chinese-courses">Tiếng Trung</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/english#japanese-courses">Tiếng Nhật</a>
-                </li>
-            </ul>
-            <div class="d-flex">
-                <a class="nav-link contact-btn" href="/contact">Liên hệ</a>
-            </div>
-        </div>
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img src="/img/Logo.png" alt="Rainbow Language Academy"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link <%= active==='home' ? 'active' : '' %>" href="/">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link <%= active==='english' ? 'active' : '' %>" href="/english">Tiếng Anh</a></li>
+        <li class="nav-item"><a class="nav-link" href="/english#chinese-courses">Tiếng Trung</a></li>
+        <li class="nav-item"><a class="nav-link" href="/english#japanese-courses">Tiếng Nhật</a></li>
+      </ul>
+      <div class="d-flex">
+        <a class="nav-link contact-btn" href="/contact">Liên hệ</a>
+      </div>
     </div>
+  </div>
 </nav>
-</head>

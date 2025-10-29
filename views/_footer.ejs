@@ -1,64 +1,50 @@
+<!-- file: views/_footer.ejs -->
 <style>
-    /* Footer */
-    footer {
-        background-color: var(--dark-color);
-        color: white;
-        padding: 2rem 0;
-    }
-
-    .social-icon {
-        font-size: 1.5rem;
-        color: white;
-        margin: 0 10px;
-        transition: color 0.3s ease;
-    }
-
-    .social-icon:hover {
-        color: var(--accent-color);
-    }
+  footer{background-color:var(--dark-color,#2C3E50);color:#fff;padding:2rem 0}
+  .social-icon{font-size:1.5rem;color:#fff;margin:0 10px;transition:.3s}
+  .social-icon:hover{color:var(--accent-color,#8CCDEB)}
 </style>
+
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <h5 class="mb-3">Rainbow Language Academy</h5>
-                <p>Trung tâm đào tạo ngoại ngữ chất lượng cao với phương pháp giảng dạy hiện đại, lấy học viên làm
-                    trung tâm.</p>
-                <div class="mt-3">
-                    <a href="https://www.facebook.com/rainbowvungtau/" class="social-icon"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mb-4">
-                <h5 class="mb-3">Liên hệ</h5>
-                <p><i class="bi bi-geo-alt-fill me-2"></i> Số 6 đường Nguyễn Phúc Tần, KDT Chí Linh, P. Nguyễn An
-                    Ninh, Vũng Tàu, Vung Tau, Vietnam</p>
-                <p><i class="bi bi-telephone-fill me-2"></i> (+84) 83 720 7369</p>
-                <p><i class="bi bi-envelope-fill me-2"></i> english.rainbow.edu@gmail.com</p>
-            </div>
-
-            <div class="col-lg-4 mb-4">
-                <h5 class="mb-3">Giờ làm việc</h5>
-                <p>Thứ 2 - Thứ 6: 15:00 - 20:00</p>
-                <p>Thứ 7 - Chủ nhật: 10:00 - 17:00</p>
-                <div class="mt-4">
-                    <a href="/contact" class="btn btn-outline-light rounded-pill">Liên hệ ngay</a>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3">Rainbow Language Academy</h5>
+        <p>Trung tâm đào tạo ngoại ngữ chất lượng cao với phương pháp giảng dạy hiện đại, lấy học viên làm trung tâm.</p>
+        <div class="mt-3">
+          <a href="https://www.facebook.com/rainbowvungtau/" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
         </div>
+      </div>
 
-        <hr class="my-4 bg-light">
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3">Liên hệ</h5>
+        <p><i class="bi bi-geo-alt-fill me-2"></i> Số 6 đường Nguyễn Phúc Tần, KDT Chí Linh, P. Nguyễn An Ninh, Vũng Tàu</p>
+        <p><i class="bi bi-telephone-fill me-2"></i> (+84) 83 720 7369</p>
+        <p><i class="bi bi-envelope-fill me-2"></i> english.rainbow.edu@gmail.com</p>
+      </div>
 
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0">&copy; 2025 Rainbow Academy. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <a href="#" class="text-white me-3">Privacy Policy</a>
-                <a href="#" class="text-white">Terms of Service</a>
-            </div>
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3">Giờ làm việc</h5>
+        <p>Thứ 2 - Thứ 6: 15:00 - 20:00</p>
+        <p>Thứ 7 - Chủ nhật: 10:00 - 17:00</p>
+        <div class="mt-4">
+          <a href="/contact" class="btn btn-outline-light rounded-pill">Liên hệ ngay</a>
         </div>
+      </div>
     </div>
+
+    <hr class="my-4 bg-light">
+
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0">&copy; <%= new Date().getFullYear() %> Rainbow Academy. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <a href="#" class="text-white me-3">Privacy Policy</a>
+        <a href="#" class="text-white">Terms of Service</a>
+      </div>
+    </div>
+  </div>
 </footer>
